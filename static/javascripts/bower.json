@@ -1,0 +1,22 @@
+{
+  "name": "javascripts",
+  "homepage": "https://github.com/devesh15951/Web-Front-End-using-flask-",
+  "authors": [
+    "devesh15951 <devesh15951@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "select2": "^4.0.5",
+    "jquery": "^3.3.1"
+  }
+}

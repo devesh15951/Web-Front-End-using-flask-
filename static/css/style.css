@@ -1,8 +1,80 @@
-.content{
-  width:900px;
-  color: #C0C0C0;
-  height: 400px;
+/*class declarations*/
+.container {
+    padding-left: 200px;
+    width: 100%;
+    background-color: #dee0e2;
+    background-image: url({{url_for('static',filename='images/tech.jpg')}}) no-repeat center top fixed;
 }
-p{
-  color: yellow;
+
+/*div id declarations*/
+#negative{
+  background: url({{url_for("static",filename="images/minus.png")}})
 }
+
+/*sections for the page*/
+#splash{
+    background-color: gray;
+}
+#footer{
+    background-color: #00344D;
+    padding-bottom: 30px;
+}
+
+#footer h1{
+  position: absolute;
+  color: white;
+}
+
+#footer p{
+  color: white;
+  position: absolute;
+}
+
+/*possible editing for radio buttons*/
+input[type="radio"]:checked{
+
+}
+
+input[type="radio"]:not(:checked){
+
+}
+
+.dropbtn {
+    background-color: #3498DB;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+}
+
+.dropdown {
+    position: absolute;
+    display: inline-block;
+    margin-left: 250px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {background-color: #ddd}
+
+.show {display:block;}

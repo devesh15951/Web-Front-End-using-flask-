@@ -3,23 +3,27 @@
   <head>
     <meta charset="utf-8">
     <title>MyFlaskApp</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap_nav.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
+    <script src={{url_for('static', filename='javascripts/multiselect.js')}}></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   </head>
+
   <body>
     {% include 'includes/_navbar.html' %}
-    <div class='container' style="background-color:grey;color:white;padding:10px;">
-      {% block body %}
-      <div class="content">
-        {% block content%}
-            <p style="background-color:grey;color:white;padding:10px;"></p>
-       {% endblock%}
-      </div>
-      {% endblock %}
-    </div>
+    <section id="splash">
+      <div class="container">
+        {% block body %}
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js">
-
-    </script>
+        {% endblock %}
+        </div>
+    </section>
+    <section id="footer">
+      <h1>Author</h1>
+          <br><br> <p>Devesh is an Information Technology major and his favorite class is <em>DIS</em></p>
+    </section>
   </body>
 </html>

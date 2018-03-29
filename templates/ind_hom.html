@@ -1,15 +1,91 @@
 {% extends 'layout.html' %}
 
+<title>User Search</title>
 
 
 {% block body %}
 
 
-        <img src="{{url_for('static', filename='picture.jpg')}}" style="margin-left:250px;">
-        <br>
-        We are a culturally diverse group of students who share latin dance as a common interest if not passion.
-        We teach latin dances on campus as well as throughout Tallahassee. We are also involved with community service opportunities around the city.
-        We host workshops as well as perform at various events throughout Florida. We focus on becoming well rounded Salsa dancers through performance, social dancing, and teaching.
+
+          <!--form to select organizations-->
+            <h1 style="float:left;"><em>Organizations</em></h1>
+            <br>
+            <form action="ind_hom.html" method="get" style="text-align:center;">
+              <input type="text" name="user" id="users" style="height:20px;width:400px;"><br><br>
+              <input type="submit" value="Go" style="height:30px;width:50px;margin-left:250px;">
+              <br><br>
+            </form>
+            <br>
+            <h1 style="float:left;"><em>Have this relationship</em></h1>
+            <input type="radio" name="emotion" id="negative" />
+            <img src={{url_for('static', filename= "images/minus.png")}} alt="I'm sad" style="height:100px;width:100px;"/>
+            <input type="radio" name="emotion" id="positive"/>
+            <img src={{url_for('static', filename= "images/plus.png")}} alt="I'm happy" style="height:100px;width:100px;"/>
+            <br><br><br>
+
+
+            <h1 style="float:left;"><em>With This</em></h1>
+            <br>
+            <form class="ind_hom.html" method="get">
+              <input type="text" name="user" id="users" style="height:20px;width:400px;margin-left:220px;"><br><br>
+            </form>
+            <em>[agenda]</em>
+            <br><br><br>
+
+            <h1 style="float:left;padding-bottom:50px;"><em>Based on this <br> evidence</em></h1>
+
+            <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn">Evidence</button>
+              <div id="myDropdown" class="dropdown-content">
+                <a href="#home">Option A</a>
+                <a href="#about">Option B</a>
+                <a href="#contact">Option C</a>
+              </div>
+            </div>
+            <br><br><br>
+            <select class="js-example-basic-multiple" name="states[]" multiple="multiple">
+              <option value="AL">Alabama</option>
+              <option value="WY">Wyoming</option>
+              <option value="WY">Wyoming</option>
+              <option value="WY">Wyoming</option>
+              <option value="WY">Wyoming</option>
+              <option value="WY">Wyoming</option>
+            </select>
+
+            <br><br><br><br>
+
+
+          <script>
+              /* When the user clicks on the button,
+              toggle between hiding and showing the dropdown content */
+              function myFunction()
+              {
+                  document.getElementById("myDropdown").classList.toggle("show");
+              }
+
+              // Close the dropdown if the user clicks outside of it
+              window.onclick = function(event) {
+                if (!event.target.matches('.dropbtn')) {
+
+                  var dropdowns = document.getElementsByClassName("dropdown-content");
+                  var i;
+                  for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                      openDropdown.classList.remove('show');
+                    }
+                  }
+                }
+              }
+          </script>
+
+
+          <!--scripts that might be needed for typeahead in FUTURE-->
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+          <script src="{{url_for('static',filename='javascripts/bower_components/select2/dist/js/select2.min.js')}}">
+
+          </script>
+
 
 
 

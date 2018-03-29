@@ -1,6 +1,6 @@
 from flask import Flask, render_template, url_for
 from data import Articles
-app = Flask(__name__, static_folder='images', static_url_path="/images")
+app = Flask(__name__, static_folder='static', static_url_path="/static")
 
 Articles = Articles()
 
