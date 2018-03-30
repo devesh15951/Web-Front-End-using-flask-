@@ -1,33 +1,40 @@
 {% extends 'layout.html' %}
 
-<title>User Search</title>
-
-
 {% block body %}
-
-
-
           <!--form to select organizations-->
-            <h1 style="float:left;"><em>Organizations</em></h1>
+            <h1 style="float:left;"><em>Organizations</em> </h1>
             <br>
+
             <form action="ind_hom.html" method="get" style="text-align:center;">
-              <input type="text" name="user" id="users" style="height:20px;width:400px;"><br><br>
-              <input type="submit" value="Go" style="height:30px;width:50px;margin-left:250px;">
-              <br><br>
+              {{ form.autocomp }}
+              <input type="submit" value="Go" style="height:30px;width:50px;">
+            </form>
+            <script>
+                $(function() {
+                    $.ajax({
+                        url: '{{ url_for("autocomplete") }}'
+                        }).done(function (data){
+                            $('#city_autocomplete').autocomplete({
+                                source: data
+                            });
+                        });
+                    });
+            </script>
+            <br><br><br>
+            <h1 style="float:left;"><em>Have this relationship</em></h1>
+            <form class="" action="index.html" method="post">
+              <input type="radio" name="emotion" id="negative" />
+              <img src={{url_for('static', filename= "images/neg2.png")}} alt="I'm sad" style="height:100px;width:100px;"/>
+              <input type="radio" name="emotion" id="positive"/>
+              <img src={{url_for('static', filename= "images/pl2.png")}} alt="I'm happy" style="height:100px;width:100px;"/>
             </form>
             <br>
-            <h1 style="float:left;"><em>Have this relationship</em></h1>
-            <input type="radio" name="emotion" id="negative" />
-            <img src={{url_for('static', filename= "images/minus.png")}} alt="I'm sad" style="height:100px;width:100px;"/>
-            <input type="radio" name="emotion" id="positive"/>
-            <img src={{url_for('static', filename= "images/plus.png")}} alt="I'm happy" style="height:100px;width:100px;"/>
-            <br><br><br>
 
 
-            <h1 style="float:left;"><em>With This</em></h1>
+            <h1 style="float:left;"><em>With this</em></h1>
             <br>
-            <form class="ind_hom.html" method="get">
-              <input type="text" name="user" id="users" style="height:20px;width:400px;margin-left:220px;"><br><br>
+            <form class="ind_hom.html" method="get" style="text-align:center;">
+              {{ form.autocomp }}
             </form>
             <em>[agenda]</em>
             <br><br><br>
@@ -43,49 +50,6 @@
               </div>
             </div>
             <br><br><br>
-            <select class="js-example-basic-multiple" name="states[]" multiple="multiple">
-              <option value="AL">Alabama</option>
-              <option value="WY">Wyoming</option>
-              <option value="WY">Wyoming</option>
-              <option value="WY">Wyoming</option>
-              <option value="WY">Wyoming</option>
-              <option value="WY">Wyoming</option>
-            </select>
-
-            <br><br><br><br>
-
-
-          <script>
-              /* When the user clicks on the button,
-              toggle between hiding and showing the dropdown content */
-              function myFunction()
-              {
-                  document.getElementById("myDropdown").classList.toggle("show");
-              }
-
-              // Close the dropdown if the user clicks outside of it
-              window.onclick = function(event) {
-                if (!event.target.matches('.dropbtn')) {
-
-                  var dropdowns = document.getElementsByClassName("dropdown-content");
-                  var i;
-                  for (i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) {
-                      openDropdown.classList.remove('show');
-                    }
-                  }
-                }
-              }
-          </script>
-
-
-          <!--scripts that might be needed for typeahead in FUTURE-->
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-          <script src="{{url_for('static',filename='javascripts/bower_components/select2/dist/js/select2.min.js')}}">
-
-          </script>
-
 
 
 
