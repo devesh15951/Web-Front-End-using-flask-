@@ -1,7 +1,5 @@
-# Web-Front-End-using-flask-
+# Flask-Autocomplete
+Basic Flask Autocomplete example based on http://stackoverflow.com/questions/22449884/flask-jquery-autocomplete
 
-Front End Screenshot
+Special thanks: http://stackoverflow.com/users/1013125/memecs
 
-![screenshot](https://github.com/devesh15951/Web-Front-End-using-flask-/blob/master/static/images/ss.jpg?raw=true)
-
-A very basic front end with a couple of form and input tags that could use a typeahead by referencing Select2.

@@ -1,50 +1,45 @@
-from flask import Flask, render_template, url_for, request, jsonify, Response
+from flask import Flask, Response, render_template, request
+import pymongo
 import json
 from wtforms import TextField, Form
-from data import Articles
-app = Flask(__name__, static_folder='static', static_url_path="/static")
 
-Articles = Articles()
+app = Flask(__name__)
 
-cities = ["Bratislava", "brajs", "bramvc",
-          "Bansk Bystrica",
-          "Preov",
-          "Povak Bystrica",
-          "ilina",
-          "Koice",
-          "Ruomberok",
-          "Zvolen",
-          "Poprad"]
+try:
+    connection = pymongo.MongoClient()
+    testdb = connection.testdb  # doesn't have to exist
+    testdb.command("buildinfo")
+except:
+    print("Error accessing mongoDB. Check that it's running.")
+    exit()
+
+db = connection["tama"]
+
+query = db["meta"].find_one()
+
+auto_data = query["groupings"]
 
 
 class SearchForm(Form):
-    autocomp = TextField(id='city_autocomplete')
+    organization = TextField(id='city_autocomplete')
 
 
 @app.route('/_autocomplete', methods=['GET'])
 def autocomplete():
-    return Response(json.dumps(cities), mimetype='application/json')
+    return Response(json.dumps(auto_data), mimetype='application/json')
 
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
     form = SearchForm(request.form)
-    return render_template('ind_hom.html', form=form)
+    return render_template("search.html", form=form)
 
 
-@app.route('/about', methods=['GET', 'POST'])
-def about():
-    return render_template('about.html')
-
-
-@app.route('/articles')
-def articles():
-    return render_template('articles.html', articles=Articles)
-
-
-@app.route('/article/<string:id>')
-def article_id(id):
-    return render_template('article.html', id=id)
+@app.route('/result', methods=['POST', 'GET'])
+def result():
+    if request.method == 'POST':
+        result = request.form
+        return render_template("test.html", result=result)
 
 
 if __name__ == '__main__':
