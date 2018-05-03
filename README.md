@@ -1,5 +1,3 @@
-# Flask-Autocomplete
-Basic Flask Autocomplete example based on http://stackoverflow.com/questions/22449884/flask-jquery-autocomplete
+Demonstration of flask front-end
 
-Special thanks: http://stackoverflow.com/users/1013125/memecs
-
+![Interface](https://github.com/devesh15951/Web-Front-End-using-flask-/blob/master/static/images/ss.png)
